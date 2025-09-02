@@ -35,22 +35,22 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         let lossMsg = `You lose! ${computerChoice} beats ${humanChoice}`;
         let tieMsg = `It's a tie! ${computerChoice} is the same as ${humanChoice}`;
-        let winMsg = `You Win! ${humanChoice} beats ${computerChoice}`
+        let winMsg = `You Win! ${humanChoice} beats ${computerChoice}`;
 
         if (humanChoice === computerChoice) {
             humanScore++
             computerScore++
-            console.log(tieMsg);
+            console.log(tieMsg + `\nscore: ${humanScore} to ${computerScore}`);
         } 
         else if ((humanChoice === 'rock' && computerChoice == 'paper') 
             || (humanChoice === 'scissors' && computerChoice == 'rock') 
             || (humanChoice === 'paper' && computerChoice == 'scissors')) {
                 computerScore++;
-                console.log(lossMsg);
+                console.log(lossMsg + `\nscore: ${humanScore} to ${computerScore}`);
         }
         else {
             humanScore++;
-            console.log(winMsg);
+            console.log(winMsg + `\nscore: ${humanScore} to ${computerScore}`);
         }
     }
 
@@ -61,8 +61,7 @@ function playGame() {
         playRound(humanEX, computerEX);
     }
 
-    console.log(humanScore);
-    console.log(computerScore);
+    console.log("\n");
 
     let endMsg;
 
@@ -73,7 +72,7 @@ function playGame() {
         endMsg = `You lost the game :( The score was ${humanScore} to ${computerScore}`;
     }
     else {
-        endMsg = "It's a tie!";
+        endMsg = `It's a tie! ${humanScore} to ${computerScore}`;
     }
 
     return endMsg;
