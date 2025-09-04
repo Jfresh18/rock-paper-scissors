@@ -16,6 +16,10 @@ function getComputerChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+const displayHumanScore = document.querySelector(".human-score");
+const displayComputerScore = document.querySelector(".computer-score");
+displayHumanScore.textContent = humanScore;
+displayComputerScore.textContent = computerScore;
 
 
 function playRound(humanChoice, computerChoice) {
@@ -26,8 +30,6 @@ function playRound(humanChoice, computerChoice) {
     const results = document.querySelector("#results");
 
     if (humanChoice === computerChoice) {
-        humanScore++
-        computerScore++
         msg = tieMsg;
     } 
     else if ((humanChoice === 'rock' && computerChoice == 'paper') 
@@ -52,16 +54,10 @@ function playRound(humanChoice, computerChoice) {
         computerScore = 0;
     }
 
-    results.textContent = msg;
-    
-    const displayHumanScore = document.querySelector(".human-score");
-    const displayComputerScore = document.querySelector(".computer-score");
-
     displayHumanScore.textContent = humanScore;
     displayComputerScore.textContent = computerScore;
+    results.textContent = msg;
 }
-
-
 
 const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
