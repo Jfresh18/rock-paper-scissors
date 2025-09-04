@@ -55,7 +55,7 @@ function displayEndScreen(msg) {
 
         const endScreenButton = document.createElement("button");
         endScreenButton.classList.add("end-screen-button");
-        endScreenButton.textContent = "Play Again?";
+        endScreenButton.textContent = "Play Again";
         endScreenButton.addEventListener("click", restartGame);
         endScreenWindow.appendChild(endScreenButton);
 }
