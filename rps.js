@@ -46,7 +46,7 @@ function playRound(humanChoice, computerChoice) {
         humanScore = 0;
         computerScore = 0;
     }
-    else if(humanScore >= 5) {
+    else if(computerScore >= 5) {
         msg = "YOU LOSE THE GAME";
         humanScore = 0;
         computerScore = 0;
