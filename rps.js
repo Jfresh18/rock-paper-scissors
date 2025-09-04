@@ -31,33 +31,33 @@ function restartGame() {
 }
 
 function displayEndScreen(msg) {
-        const endScreen = document.createElement("div");
-        endScreen.classList.add("end-screen");
+    const endScreen = document.createElement("div");
+    endScreen.classList.add("end-screen");
 
-        container.appendChild(endScreen);
+    container.appendChild(endScreen);
 
-        const endScreenWindow = document.createElement("div");
-        endScreenWindow.classList.add("end-screen-window");
-        endScreenWindow.textContent = msg;
-        endScreen.appendChild(endScreenWindow);
+    const endScreenWindow = document.createElement("div");
+    endScreenWindow.classList.add("end-screen-window");
+    endScreenWindow.textContent = msg;
+    endScreen.appendChild(endScreenWindow);
 
-        const endScreenScore = document.createElement("div");
-        endScreenScore.classList.add("end-screen-score");
-        endScreenWindow.appendChild(endScreenScore);
+    const endScreenScore = document.createElement("div");
+    endScreenScore.classList.add("end-screen-score");
+    endScreenWindow.appendChild(endScreenScore);
 
-        const score1 = document.createElement("p");
-        const score2 = document.createElement("p");
-        score1.textContent = `Your Score: ${humanScore}`;
-        score2.textContent = `CPU Score: ${computerScore}`;
-        endScreenScore.appendChild(score1);
-        endScreenScore.appendChild(score2);
+    const score1 = document.createElement("p");
+    const score2 = document.createElement("p");
+    score1.textContent = `Your Score: ${humanScore}`;
+    score2.textContent = `CPU Score: ${computerScore}`;
+    endScreenScore.appendChild(score1);
+    endScreenScore.appendChild(score2);
 
 
-        const endScreenButton = document.createElement("button");
-        endScreenButton.classList.add("end-screen-button");
-        endScreenButton.textContent = "Play Again";
-        endScreenButton.addEventListener("click", restartGame);
-        endScreenWindow.appendChild(endScreenButton);
+    const endScreenButton = document.createElement("button");
+    endScreenButton.classList.add("end-screen-button");
+    endScreenButton.textContent = "Play Again";
+    endScreenButton.addEventListener("click", restartGame);
+    endScreenWindow.appendChild(endScreenButton);
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -118,8 +118,4 @@ paperBtn.addEventListener("click",  () => {
 scissorsBtn.addEventListener("click",  () => {
     playRound("scissors", getComputerChoice())
 });
-
-
-
-
 
