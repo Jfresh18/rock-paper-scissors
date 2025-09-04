@@ -1,4 +1,10 @@
-
+let humanScore = 0;
+let computerScore = 0;
+const displayHumanScore = document.querySelector(".human-score");
+const displayComputerScore = document.querySelector(".computer-score");
+displayHumanScore.textContent = humanScore;
+displayComputerScore.textContent = computerScore;
+const container = document.querySelector("body");
 
 function getComputerChoice() {
     randNum = Math.random();
@@ -14,13 +20,45 @@ function getComputerChoice() {
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
-const displayHumanScore = document.querySelector(".human-score");
-const displayComputerScore = document.querySelector(".computer-score");
-displayHumanScore.textContent = humanScore;
-displayComputerScore.textContent = computerScore;
+function restartGame() {
+    const endScreen = document.querySelector(".end-screen");
+    const results = document.querySelector("#results");
+    humanScore = 0;
+    computerScore = 0;
+    results.textContent = "CHOOSE A MOVE TO BEGIN";
+    endScreen.remove();
+    
+}
 
+function displayEndScreen(msg) {
+        const endScreen = document.createElement("div");
+        endScreen.classList.add("end-screen");
+
+        container.appendChild(endScreen);
+
+        const endScreenWindow = document.createElement("div");
+        endScreenWindow.classList.add("end-screen-window");
+        endScreenWindow.textContent = msg;
+        endScreen.appendChild(endScreenWindow);
+
+        const endScreenScore = document.createElement("div");
+        endScreenScore.classList.add("end-screen-score");
+        endScreenWindow.appendChild(endScreenScore);
+
+        const score1 = document.createElement("p");
+        const score2 = document.createElement("p");
+        score1.textContent = `Your Score: ${humanScore}`;
+        score2.textContent = `CPU Score: ${computerScore}`;
+        endScreenScore.appendChild(score1);
+        endScreenScore.appendChild(score2);
+
+
+        const endScreenButton = document.createElement("button");
+        endScreenButton.classList.add("end-screen-button");
+        endScreenButton.textContent = "Play Again?";
+        endScreenButton.addEventListener("click", restartGame);
+        endScreenWindow.appendChild(endScreenButton);
+}
 
 function playRound(humanChoice, computerChoice) {
     let msg;
@@ -44,14 +82,22 @@ function playRound(humanChoice, computerChoice) {
     }
 
     if(humanScore >= 5) {
-        msg = "YOU WIN THE GAME";
+        msg = "YOU WON";
+        
+        displayEndScreen(msg);
         humanScore = 0;
         computerScore = 0;
+        msg = "";
+
     }
     else if(computerScore >= 5) {
-        msg = "YOU LOSE THE GAME";
+        msg = "YOU LOST";
+
+        displayEndScreen(msg);
         humanScore = 0;
         computerScore = 0;
+        msg = "";
+
     }
 
     displayHumanScore.textContent = humanScore;
