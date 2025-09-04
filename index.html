@@ -5,15 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="rps.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <div id="results"></div>
-    <div id="score">
-        <div class="human-score"></div>
-        <div class="computer-score"></div>
-    </div>
+        <div class="top">
+            <div id="results">CHOOSE A MOVE TO BEGIN</div>
+        </div>
+        <div class="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div id="score">
+            <div class="human-score"></div>
+            <div class="score-text">YOU</div>
+            <div class="score-text">CPU</div>
+            <div class="computer-score"></div>
+        </div>
 </body>
 </html>
